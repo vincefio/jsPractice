@@ -1,0 +1,33 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <title>Google Maps</title>
+</head>
+<body>
+
+  <script>
+  // Optionally the request above could also be done as
+axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+  params: {
+    address: '322 Whitenack Road Far Hills NJ',
+    key: 'AIzaSyCvMR70NsNiSJtm-UGdnZQ0p5Ryl8mu2Zw'
+  }
+})
+.then(function (response) {
+  console.log(response);
+})
+.catch(function (error){
+  console.log(error)
+})
+
+
+  //api key AIzaSyCvMR70NsNiSJtm-UGdnZQ0p5Ryl8mu2Zw<!DOCTYPE html>
+
+  </script>
+</body>
+</html>
