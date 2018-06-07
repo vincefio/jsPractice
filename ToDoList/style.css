@@ -3,13 +3,23 @@
 }
 
 #addButton{
-  background-color: #f60b10
+  background-color: #f60b10;
+  font-weight: bold;
+  height: 32px;
+  padding-top: 2px;
+  width: 50px;
+}
+
+#addButton, button{
+  cursor: pointer;
 }
 
 .listItem{
   background-color: green;
   max-width: 100px;
   height: 35px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 15px;
   padding: 4px;
   color: white;
@@ -17,11 +27,16 @@
   font-weight: 500;
   text-align: center;
   position: relative;
-
+  border-style: outset;
+  border-width: 3px;
 }
 
 .exButton{
   position: absolute;
-  right: -30%;
+  right: -34%;
   top: 17%;
+}
+
+.container{
+  text-align: center;
 }
