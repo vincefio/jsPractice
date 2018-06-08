@@ -13,6 +13,8 @@ $(document).ready(function(){
 
      $('#newItem').val('')
 
+      $('#newItem').focus()
+
      displayList()
   })
 
@@ -24,6 +26,7 @@ $(document).ready(function(){
     list.splice(dataNum, 1)
     console.log(list)
     displayList()
+
   })
 })
 
