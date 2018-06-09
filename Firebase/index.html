@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Firebase Intro</title>
+
+  <script src="./script.js"></script>
+</head>
+<body>
+
+
+<button id="clickMe">Click Me</input>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyACGRSunfkMkTYEJMwXl_qBv3h47U9U368",
+    authDomain: "train-schedule-dff9c.firebaseapp.com",
+    databaseURL: "https://train-schedule-dff9c.firebaseio.com",
+    projectId: "train-schedule-dff9c",
+    storageBucket: "train-schedule-dff9c.appspot.com",
+    messagingSenderId: "1017718111684"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+    var database = firebase.database();
+
+    // Initializing our click count at 0
+    var clickCounter = 0;
+
+
+  $('#clickMe').on('click', function(){
+    clickCounter++
+    database.ref().set({
+      clickCount: clickCounter
+    });
+  })
+
+
+
+
+</script>
+</body>
+</html>
