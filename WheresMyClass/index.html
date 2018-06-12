@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Where's My Class</title>
+
+  <link rel="stylesheet" type="text/css" src="./style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+</head>
+<body>
+
+  <script>
+    let queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
+
+    //need to use cors request
+  /*  let xhr = new XMLHttpRequest()
+  //  xhr.onreadystatechange = handleStateChange; // Implemented elsewhere.
+    xhr.open('GET', queryURL, true)
+    xhr.onreadystatechange = function() {
+  if (xhr.readyState == 4) {
+    // innerText does not let the attacker inject HTML elements.
+    console.log(xhr.responseText);
+  }
+}
+    xhr.send()*/
+
+
+  $.ajax({
+      url: queryURL,
+      method: 'GET',
+      contentType: 'text/plain',
+  
+ success: function(response) {
+    // Here's where you handle a successful response.
+    console.log(response)
+  },
+  error: function(error) {
+    console.log(error)
+   // Here's where you handle an error response.
+   // Note that if the error was due to a CORS issue,
+   // this function will still fire, but there won't be any additional
+   // information about the error.
+ }
+})//.done(function(response){
+    //  console.log(response)
+    //})
+
+  </script>
+
+</body>
+</html>
