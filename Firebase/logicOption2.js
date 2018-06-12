@@ -17,10 +17,11 @@ var initialValue = 100;
 var clickCounter = initialValue;
 
 // --------------------------------------------------------------
-
+localStorage.setItem('name', 'vince')
 // At the initial load, get a snapshot of the current data.
 var database = firebase.database().ref();
 database.on('value', function(snapshot) {
+  debugger
   console.log(snapshot.val())
 
 
@@ -50,7 +51,9 @@ $("#click-button").on("click", function() {
 
   // Alert User and reset the counter
   database.set({
-    clicks: clickCounter
+    clicks: clickCounter,
+    name: 'vince',
+    age: '25'
   })
 
   // Save new value to Firebase
@@ -60,6 +63,14 @@ $("#click-button").on("click", function() {
   console.log(clickCounter)
 
 });
+
+$('#nameSubmit').on('click', function(){
+  let userName = $('#name').val()
+  //console.log(userName)
+  database.set({
+    user: userName
+  })
+})
 
 // Whenever a user clicks the restart button
 $("#restart-button").on("click", function() {
