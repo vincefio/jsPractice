@@ -6,7 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Where's My Class</title>
 
-  <link rel="stylesheet" type="text/css" src="./style.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="type/css" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/cosmo/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -14,42 +16,49 @@
   <script src="./script.js"></script>
 </head>
 <body>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#">Where's My Class</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </nav>
 
+            </div>
+            <div class="container body-container">
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Class Name:</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Class Name">
+
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Class Time:</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Class Time">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Day of Week</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Day of Week">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Class Address</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Class Address">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+            </div>
   <script>
-    let queryURL = "http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC"
+    //chuck norris ajax request working
+    let queryURL = "https://api.chucknorris.io/jokes/random"
 
-    //need to use cors request
-  /*  let xhr = new XMLHttpRequest()
-  //  xhr.onreadystatechange = handleStateChange; // Implemented elsewhere.
-    xhr.open('GET', queryURL, true)
-    xhr.onreadystatechange = function() {
-  if (xhr.readyState == 4) {
-    // innerText does not let the attacker inject HTML elements.
-    console.log(xhr.responseText);
-  }
-}
-    xhr.send()*/
-
-
-  $.ajax({
+    $.ajax({
       url: queryURL,
-      method: 'GET',
-      contentType: 'text/plain',
-
- success: function(response) {
-    // Here's where you handle a successful response.
-    console.log(response)
-  },
-  error: function(error) {
-    console.log(error)
-   // Here's where you handle an error response.
-   // Note that if the error was due to a CORS issue,
-   // this function will still fire, but there won't be any additional
-   // information about the error.
- }
-})//.done(function(response){
-    //  console.log(response)
-    //})
+      method: 'GET'
+    }).done(function(response){
+      console.log(response.value)
+    })
 
   </script>
 
