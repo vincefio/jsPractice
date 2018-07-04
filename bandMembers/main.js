@@ -2,6 +2,9 @@ var inquirer = require('inquirer')
 var Band = require('./band')
 var Member = require('./member')
 
+//create an array for bandMembers
+let memberArr = []
+
 inquirer.prompt([
   {
     type: 'confirm',
@@ -15,32 +18,48 @@ inquirer.prompt([
       game()
     }
 })
-function loop() {
-if (page <= last_page) {
-    request("/data?page=" + page, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            store_data(body)
-        }
-        page++;
-        loop();
-    });
-}
-};
-//next we need to loop through answers.numBandMembers and create them with inquirer
-//let bandMemberCount = 4
-function createMembers(){
 
-  //if(bandMemberCount > 0){
+//next we need to loop through answers.numBandMembers and create them with inquirer
+function createMembers(numBandMembers){
+  //console.log('nummembers ' + numBandMembers)
+  //numBandMembers = parseInt(numBandMembers)
+  //console.log(typeof numBandMembers)
+
+  if(numBandMembers > 0){
     inquirer.prompt([
       {
         type: 'input',
         name: 'memberName',
         message: 'ENTER BAND MEMBER NAME:'
-      }
+      },
+      {
+        type: 'checkbox',
+        name: 'memberInstruments',
+        default: 'looks cool',
+        choices: ['vocals', 'guitar', 'bass', 'drums'],
+        message: 'WHAT INSTRUMENTS DOES THE MEMBER PLAY?:'
+      },
+      {
+        type: 'confirm',
+        name: 'memberCool',
+        message: 'IS THE MEMBER COOL?:'
+      },
+
     ]).then(answers => {
-      console.log(answers)
+      var nextMember = new Member(answers.memberName, answers.memberInstruments, answers.memberCool)
+      memberArr.push(nextMember)
+      console.log('MEMBER ADDED')
+      //create a new member object
+      numBandMembers --
+      //console.log(answers)
+      createMembers(numBandMembers)
     })
 //}
+  }
+  else{
+    console.log('ON TO THE NEXT STEP')
+    console.log(memberArr)
+  }
 }
 
 function game(){
@@ -50,11 +69,11 @@ function game(){
       name: 'bandName',
       message: 'What is the band name?'
     },
-    /*{
+    {
       type: 'input',
       name: 'numBandMembers',
       message: 'How many members are in the band?'
-    },*/
+    },
     {
       type: 'input',
       name: 'bandGenre',
@@ -63,12 +82,12 @@ function game(){
   ]).then(answers => {
     //console.log(JSON.stringify(answers))
     //create a new Band object with the answers
-    var newBand = new Band(answers.bandName, answers.bandGenre)
+    var newBand = new Band(answers.bandName, answers.numBandMembers, answers.bandGenre)
     console.log('Your band ' + answers.bandName.toUpperCase() + ' has been created')
     //let bandMemberCount = answers.numBandMembers
 
     //this should be a recursive function
-    createMembers()
-
+    createMembers(parseInt(answers.numBandMembers))
+    //createPlayer()
   })
 }

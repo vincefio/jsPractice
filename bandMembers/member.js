@@ -1,9 +1,8 @@
-var Member = function(name, cool, age){
+var Member = function(name, instruments, isCool){
 
   this.name = name;
-  this.instruments = [];
-  this.isCool = cool;
-  this.age = age;
+  this.instruments = instruments;
+  this.isCool = isCool;
 }
 
 module.exports = Member;
