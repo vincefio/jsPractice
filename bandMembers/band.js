@@ -1,8 +1,9 @@
-var Band = function(name){
+var Band = function(name, numMembers, genre){
 
   this.name = name;
-  this.numMembers = 3
-  this.members = []
+  this.numMembers = numMembers;
+  this.genre = genre;
+  this.members = [];
 
   this.addMember = function(){
 
