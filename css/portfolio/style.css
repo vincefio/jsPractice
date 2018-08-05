@@ -1,0 +1,16 @@
+#brand-logo {
+  font-family: "Acme", sans-serif;
+}
+
+nav {
+  margin-bottom: 15px;
+}
+
+#profImg {
+  transition: transform 300ms ease-in-out;
+  pointer-events: none;
+}
+
+.trigger:hover > #profImg {
+  transform: translate(200px, 150px);
+}
