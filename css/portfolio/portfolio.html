@@ -55,11 +55,11 @@
                 <img id="profImg" class='responsive-img' src="./img/stomp.jpg" alt="stomp">
             </div>
             <div class="col s5">
-                <h2>Personal Content</h2>
+                <h2 id="personalContent">Personal Content</h2>
                 <ul>
-                    <h3>Web Design</h3>
-                    <h3>Music</h3>
-                    <h3>Blog</h3>
+                    <h3 class="content" id="ul1">Web Design</h3>
+                    <h3 class="content" id="ul2">Music</h3>
+                    <h3 class="content" id="ul3">Blog</h3>
                 </ul>
             </div>
         </div>
@@ -74,8 +74,21 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script>
+
         $(document).ready(function () {
+
             $('.sidenav').sidenav();
+
+            $('.content').each(function (i) {
+
+                setTimeout(function () {
+                    // console.log(i)
+                    $('.content').eq(i).addClass('is-visible')
+                }, 250 * i)
+
+            })
+
+
         });
 
     </script>

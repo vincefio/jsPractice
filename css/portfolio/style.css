@@ -7,10 +7,67 @@ nav {
 }
 
 #profImg {
+  position: relative;
+  animation-name: myanimation;
+  animation-duration: 1s;
+}
+
+#personalContent {
+  position: relative;
+  animation-name: personal;
+  animation-duration: 1.5s;
+}
+
+.is-visible {
+  position: relative;
+  animation-name: traits;
+  animation-duration: 0.1s;
+}
+
+@keyframes traits {
+  0% {
+    left: -800px;
+    top: 100px;
+  }
+  100% {
+    left: 0;
+    top: 0;
+  }
+}
+
+@keyframes personal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes myanimation {
+  0% {
+    left: -100px;
+    top: -200px;
+  }
+
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+/*#profImg {
   transition: transform 300ms ease-in-out;
   pointer-events: none;
+  position: relative;
+  top: -10px;
+  left: -10px;
 }
 
 .trigger:hover > #profImg {
-  transform: translate(200px, 150px);
+  transform: translate(10px, 10px);
 }
+
+.clicked {
+  transform: translate(10px, 10px);
+}*/
