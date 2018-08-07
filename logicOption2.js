@@ -1,5 +1,7 @@
 // Initialize Firebase (YOUR OWN APP)
+let x = 10
 
+if
 // Set Initial Counter
 var initialValue = 100;
 

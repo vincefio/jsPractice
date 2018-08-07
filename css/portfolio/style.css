@@ -18,10 +18,18 @@ nav {
   animation-duration: 1.5s;
 }
 
+.content {
+  text-align: center;
+}
+
 .is-visible {
   position: relative;
   animation-name: traits;
-  animation-duration: 0.1s;
+  animation-duration: 0.16s;
+}
+
+.ulWrap {
+  height: 500px;
 }
 
 @keyframes traits {
