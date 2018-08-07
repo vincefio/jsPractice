@@ -3,7 +3,10 @@
 }
 
 nav {
-  margin-bottom: 15px;
+}
+
+.ulWrapper {
+  text-align: center;
 }
 
 #profImg {
@@ -18,8 +21,15 @@ nav {
   animation-duration: 1.5s;
 }
 
-.content {
-  text-align: center;
+/****************************INTRO WRAP**********************/
+.introWrap {
+  padding-top: 15px;
+  background-color: rgba(117, 117, 117, 0.2);
+  margin-bottom: 0;
+}
+
+.contentUl {
+  margin-left: 35px;
 }
 
 .is-visible {
@@ -29,7 +39,6 @@ nav {
 }
 
 .ulWrap {
-  height: 500px;
 }
 
 @keyframes traits {
