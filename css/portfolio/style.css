@@ -41,6 +41,51 @@ nav {
 .ulWrap {
 }
 
+/**********************DESIGN WRAP******************************/
+.designWrap {
+  background-color: rgba(224, 224, 224, 0.2);
+  height: 500px;
+}
+
+.designHeader {
+  margin-top: 0;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.designQualities {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+
+.designIcon {
+  display: block;
+  text-align: center;
+  height: 50px;
+  font-size: 3em;
+}
+
+.iconWrap {
+  text-align: center;
+  font-size: 5em;
+}
+
+@media screen and (max-width: 605px) {
+  .designQualities {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ulWrapper {
+    height: 300px;
+  }
+  .designWrap {
+    height: 300px;
+  }
+}
+
 @keyframes traits {
   0% {
     left: -800px;
