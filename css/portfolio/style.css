@@ -22,6 +22,16 @@ nav {
 }
 
 /****************************INTRO WRAP**********************/
+/*.parallax {
+  background-image: url("./img/trainTracks.jpg");
+  background-size: cover;
+  background-position: center bottom;
+}*/
+
+.parallax-container {
+  height: 550px;
+}
+
 .introWrap {
   padding-top: 15px;
   background-color: rgba(117, 117, 117, 0.2);
@@ -71,6 +81,12 @@ nav {
   font-size: 5em;
 }
 
+/*****************PROJECTS WRAP********************/
+.projectWrap {
+  height: 500px;
+  background-color: rgba(117, 117, 117, 0.2);
+}
+
 @media screen and (max-width: 605px) {
   .designQualities {
     width: 50%;
@@ -82,6 +98,9 @@ nav {
     height: 300px;
   }
   .designWrap {
+    height: 300px;
+  }
+  .projectWrap {
     height: 300px;
   }
 }

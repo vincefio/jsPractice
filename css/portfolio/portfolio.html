@@ -29,13 +29,13 @@
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
-                    <a href="sass.html">Home</a>
+                    <a href="sass.html">Development</a>
                 </li>
                 <li>
-                    <a href="badges.html">Services</a>
+                    <a href="badges.html">Projects</a>
                 </li>
                 <li>
-                    <a href="collapsible.html">Contact</a>
+                    <a href="collapsible.html">Blog</a>
                 </li>
             </ul>
         </div>
@@ -43,67 +43,81 @@
 
     <ul class="sidenav" id="mobile-demo">
         <li>
-            <a href="sass.html">Home</a>
+            <a href="sass.html">Development</a>
         </li>
         <li>
-            <a href="badges.html">Services</a>
+            <a href="badges.html">Projects</a>
         </li>
         <li>
-            <a href="collapsible.html">Contact</a>
+            <a href="collapsible.html">Blog</a>
         </li>
     </ul>
 
 
     <div class="bodyWrap">
-        <div class="row introWrap">
-            <div class="col s12 m7 trigger">
-                <img id="profImg" class='responsive-img' src="./img/stomp.jpg" alt="stomp">
-            </div>
-            <div class="ulWrapper col s12 m5">
 
-                <ul class="contentUl">
-                    <h3 class="content" id="ul1">Web Design</h3>
-                    <h3 class="content" id="ul2">Music</h3>
-                    <h3 class="content" id="ul3">Blog</h3>
-                </ul>
+        <div class="headerWrap">
+
+            <div class="parallax-container">
+                <div class="parallax">
+                    <img class="headerImg" src="./img/buildings.jpg">
+                </div>
             </div>
         </div>
 
-
         <div class="designWrap">
-            <h2 class="designHeader">Design</h1>
+            <h2 id="header" class="designHeader">Design</h2>
 
-                <div class="designQualities">
-                    <div class="iconWrap">
-                        <i class="fa fa-android"></i>
-                    </div>
-                    <h4>Awesome</h4>
-                    <p>My applications are all on par with google applications
-                    </p>
+            <div class="designQualities">
+                <div class="iconWrap">
+                    <i class="fa fa-android"></i>
                 </div>
-                <div class="designQualities">
-                    <div class="iconWrap">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h4>Responsive</h4>
-                    <p>By far the most responsive apps in the world
-                    </p>
+                <h4>Awesome</h4>
+                <p>My applications are all on par with google applications
+                </p>
+            </div>
+            <div class="designQualities">
+                <div class="iconWrap">
+                    <i class="fas fa-mobile-alt"></i>
                 </div>
-                <div class="designQualities">
-                    <div class="iconWrap">
-                        <i class="fas fa-theater-masks"></i>
-                    </div>
-                    <h4>Intuitive</h4>
-                    <p>I'll read your mind to you before I take it over</p>
+                <h4>Responsive</h4>
+                <p>By far the most responsive apps in the world
+                </p>
+            </div>
+            <div class="designQualities">
+                <div class="iconWrap">
+                    <i class="fas fa-theater-masks"></i>
                 </div>
-                <div class="designQualities">
-                    <div class="iconWrap">
-                        <i class="fas fa-bomb"></i>
-                    </div>
-                    <h4>Bomb</h4>
-                    <p>I'm the bomb</p>
+                <h4>Intuitive</h4>
+                <p>I'll read your mind to you before I take it over</p>
+            </div>
+            <div class="designQualities">
+                <div class="iconWrap">
+                    <i class="fas fa-bomb"></i>
                 </div>
-                <div class="clearfix"></div>
+                <h4>Bomb</h4>
+                <p>I'm the bomb</p>
+            </div>
+        </div>
+        <div class="projectWrap">
+            <h2 id="projects" class="designHeader">Projects</h2>
+            <div class="row introWrap">
+                <div class="col s12 m7 trigger">
+                    <img id="profImg" class='responsive-img' src="./img/stomp.jpg" alt="stomp">
+                </div>
+                <div class="ulWrapper col s12 m5">
+
+                    <ul class="contentUl">
+                        <a href="#header">
+                            <h3 class="content" id="ul1">Web Design</h3>
+                        </a>
+                        <a href="#projects">
+                            <h3 class="content" id="ul2">Projects</h3>
+                        </a>
+                        <h3 class="content" id="ul3">Blog</h3>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -118,6 +132,7 @@
 
         $(document).ready(function () {
 
+            $('.parallax').parallax();
 
             $('.sidenav').sidenav();
 
