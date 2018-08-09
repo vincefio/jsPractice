@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 #brand-logo {
   font-family: "Acme", sans-serif;
 }
@@ -54,16 +58,35 @@ nav {
 /**********************DESIGN WRAP******************************/
 .designWrap {
   background-color: rgba(224, 224, 224, 0.2);
-  height: 500px;
+  height: 550px;
+  position: relative;
 }
 
 .designHeader {
+  margin-bottom: 0;
+display: block;
   margin-top: 0;
   text-align: center;
   padding-top: 15px;
+  padding-top: 4%;
+  /*border-bottom: 5px solid black;*/
+}
+
+.designHeader:after {
+  content: "";
+  display: block;
+margin: 0 auto;
+  width: 0;
+  height: 4px;
+  background:	 #0052cc;
+}
+
+.designHeader:hover::after{
+  width: 10%;
 }
 
 .designQualities {
+  margin-top: 5%;
   float: left;
   width: 25%;
   text-align: center;
@@ -91,6 +114,9 @@ nav {
   .designQualities {
     width: 50%;
   }
+  .designWrap {
+    height: 700px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -98,7 +124,6 @@ nav {
     height: 300px;
   }
   .designWrap {
-    height: 300px;
   }
   .projectWrap {
     height: 300px;
