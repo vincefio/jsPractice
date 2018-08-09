@@ -4,9 +4,11 @@
 
 #brand-logo {
   font-family: "Acme", sans-serif;
+  padding-left: 20px;
 }
 
-nav {
+.nav-item {
+  padding-right: 1px;
 }
 
 .ulWrapper {
@@ -24,6 +26,7 @@ nav {
   animation-name: personal;
   animation-duration: 1.5s;
 }
+
 
 /****************************INTRO WRAP**********************/
 /*.parallax {
