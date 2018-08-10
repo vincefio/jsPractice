@@ -39,6 +39,28 @@
   height: 550px;
 }
 
+a, h1 a, h1{
+  cursor: pointer;
+}
+
+#aTest{
+  font-size: 5em;
+    color: blueviolet;
+    z-index: 5;
+
+}
+
+#logoText{
+  position: absolute;
+  bottom: 40%;
+  background-color: white;
+  left: 46%;
+  width: 150px;
+  text-align: center;
+  height: 75px;
+  border-radius: 50%;
+}
+
 .introWrap {
   padding-top: 15px;
   background-color: rgba(117, 117, 117, 0.2);
