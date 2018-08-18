@@ -1,0 +1,329 @@
+/*
+    Theme Name: myNewTheme
+    Author: Vince Fury
+    Author URI: http://vincefury.com
+    Description: My new portfolio theme
+    Version: 1.0
+*/
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body{
+    
+  }
+
+  html{
+   
+  }
+  
+  #brand-logo {
+    font-family: "Acme", sans-serif;
+    padding-left: 20px;
+  }
+  
+  .nav-item {
+    padding-right: 1px;
+  }
+  
+  .ulWrapper {
+    text-align: center;
+  }
+  
+  /*#profImg {
+    position: relative;
+    animation-name: myanimation;
+    animation-duration: 1s;
+  }*/
+  
+  #personalContent {
+    position: relative;
+    animation-name: personal;
+    animation-duration: 1.5s;
+  }
+  
+  
+  /****************************INTRO WRAP**********************/
+  /*.parallax {
+    background-image: url("./img/trainTracks.jpg");
+    background-size: cover;
+    background-position: center bottom;
+  }*/
+  
+  .parallax-container {
+    height: 550px;
+  }
+  
+  a, h1 a, h1{
+    cursor: pointer;
+  }
+  
+  #aTest{
+    font-size: 5em;
+      color: blueviolet;
+      z-index: 5;
+  
+  }
+  
+  #catchPhrase{
+    color: orange;
+    text-shadow: 2px 2px #000;
+    font-weight: bold;
+    position: absolute;
+    left: 20%;
+    top: 25%;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+  }
+
+  #headerLink{
+    width: 150px;
+    height: 70px;
+    font-size: 1.2em;
+  }
+
+  .headerButton{
+    width: 225px;
+  }
+
+  #logoText{
+    position: absolute;
+    bottom: 30%;
+   /* background-color: white;*/
+    left: 40%;
+    
+    text-align: center;
+   
+    /*border-radius: 50%;*/
+  }
+  
+  .introWrap {
+    padding-top: 15px;
+    background-color: rgba(117, 117, 117, 0.2);
+    margin-bottom: 0;
+  }
+  
+  .contentUl {
+    margin-left: 35px;
+  }
+  
+  .is-visible {
+    position: relative;
+    animation-name: traits;
+    animation-duration: 0.16s;
+  }
+  
+  .ulWrap {
+  }
+  
+  /**********************DESIGN WRAP******************************/
+  .designWrap {
+    background-color: rgba(224, 224, 224, 0.2);
+    height: 500px;
+    position: relative;
+  }
+  
+  .designHeader {
+    margin-bottom: 0;
+  display: block;
+    margin-top: 0;
+    text-align: center;
+    padding-top: 15px;
+    padding-top: 4%;
+    /*border-bottom: 5px solid black;*/
+  }
+  
+  .designHeader:after {
+    content: "";
+    display: block;
+  margin: 0 auto;
+    width: 0;
+    height: 4px;
+    background:	 #0052cc;
+  }
+  
+  .designHeader:hover::after{
+    width: 10%;
+  }
+  
+  .designQualities {
+    margin-top: 5%;
+    float: left;
+    width: 25%;
+    text-align: center;
+  }
+  
+  .designIcon {
+    display: block;
+    text-align: center;
+    height: 50px;
+    font-size: 3em;
+  }
+  
+  .iconWrap {
+    text-align: center;
+    font-size: 5em;
+  }
+  
+  /*****************PROJECTS WRAP********************/
+  .projectWrap {
+   
+  }
+
+  .projectHeader{
+      margin-bottom: 45px;
+  }
+  
+.hvrbox {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+}
+.hvrbox img {
+    max-width: 100%;
+}
+.hvrbox .hvrbox-layer_bottom {
+	display: block;
+}
+
+.row, .col{
+   /* padding: 0 !important;
+    margin-bottom: 0 !important;*/
+}
+.hvrbox .hvrbox-layer_top {
+    
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	padding: 15px;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+.hvrbox:hover .hvrbox-layer_top,
+.hvrbox.active .hvrbox-layer_top {
+	opacity: 1;
+}
+.hvrbox .hvrbox-text {
+	text-align: center;
+	font-size: 18px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.hvrbox .hvrbox-text_mobile {
+	font-size: 15px;
+	border-top: 1px solid rgb(179, 179, 179); /* for old browsers */
+	border-top: 1px solid rgba(179, 179, 179, 0.7);
+	margin-top: 5px;
+	padding-top: 2px;
+	display: none;
+}
+.hvrbox.active .hvrbox-text_mobile {
+	display: block;
+}
+
+  @media screen and (max-width: 782px){
+    body{
+        margin: -50px 0 !important;
+      }
+
+    #logoText{
+        left: 30%;
+    }
+    #catchPhrase{
+        left: 15%;
+    }
+  }
+  
+  @media screen and (max-width: 605px) {
+    .designQualities {
+      width: 50%;
+    }
+    .designWrap {
+      height: 700px;
+    }
+
+    #logoText{
+        left: 22%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .ulWrapper {
+      height: 300px;
+    }
+    .designWrap {
+    }
+    .projectWrap {
+      height: 300px;
+    }
+    #logoText{
+        bottom: 20%;
+    }
+  }
+  
+  @keyframes traits {
+    0% {
+      left: -800px;
+      top: 100px;
+    }
+    100% {
+      left: 0;
+      top: 0;
+    }
+  }
+  
+  @keyframes personal {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes myanimation {
+    0% {
+      left: -100px;
+      top: -200px;
+    }
+  
+    100% {
+      left: 0px;
+      top: 0px;
+    }
+  }
+  
+  /*#profImg {
+    transition: transform 300ms ease-in-out;
+    pointer-events: none;
+    position: relative;
+    top: -10px;
+    left: -10px;
+  }
+  
+  .trigger:hover > #profImg {
+    transform: translate(10px, 10px);
+  }
+  
+  .clicked {
+    transform: translate(10px, 10px);
+  }*/
+  
