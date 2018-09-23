@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>w3 Practice</title>
+</head>
+
+<body>
+
+
+    <script>
+        //5. Write a JavaScript function to convert a string in abbreviated form.
+
+        function numFive(input) {
+            //first check if string has 2 words
+            var splitInput = input.split(' ')
+            if (splitInput.length > 1) {
+                //take every word after the first and capitalize 1st letter
+                //var firstElement = splitInput.shift()
+                //console.log(splitInput)
+                //loop through array starting at index 1
+                let returnArray = []
+                var firstLetter = ''
+                for (var i = 0; i < splitInput.length; i++) {
+                    //console.log(splitInput[i])
+                    if (i == 0) {
+                        //dont touch first index
+                        returnArray.push(splitInput[i])
+                    } else {
+                        firstLetter = splitInput[i].slice(0, 1)
+                        //firstLetter = firstLetter.slice(0, 1)
+                        returnArray.push(firstLetter)
+                    }
+                }
+                var returnString = returnArray.join(" ")
+                console.log(returnString)
+            }
+        }
+
+        numFive('Vincent Joseph Fiorilli')
+    </script>
+
+</body>
+
+</html>
