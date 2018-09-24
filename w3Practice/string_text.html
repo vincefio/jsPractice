@@ -65,7 +65,20 @@
         var doneUpString = function (input) {
             //score string in an array
             let inputArray = input.toLowerCase().split('')
-            console.log(inputArray)
+            let convertedArray = []
+            //console.log(inputArray)
+            //loop through the string to insert - in space of ''
+            for (var i = 0; i < inputArray.length; i++) {
+
+                if (inputArray[i] == ' ') {
+                    //console.log('we got one')
+                    convertedArray.push('-')
+                } else {
+                    convertedArray.push(inputArray[i])
+                }
+            }
+            console.log(convertedArray)
+            console.log(convertedArray.join(''))
         }
 
         doneUpString("Robin Singh from USA")
