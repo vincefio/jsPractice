@@ -21,6 +21,58 @@
         }
 
         functionOne('yoyo')*/
+
+        //2. Write a JavaScript function to check whether a string is blank or not.
+        /*function isBlank(input) {
+            if (input.length == 0) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        console.log(isBlank(''))*/
+
+        //3. Write a JavaScript function to split a string and convert it into an array of words.
+
+        /*function isBlank(input) {
+            console.log(input.split(' '))
+        }
+
+        isBlank('this is the string thats gonna be split')*/
+
+        //4. Write a JavaScript function to extract a specified number of characters from a string.
+        /*var extractNum = (input, num) => {
+            return input.slice(0, num)
+        }
+
+        console.log(extractNum('Vince Fury', 5))   */
+
+        //5. Write a JavaScript function to convert a string in abbreviated form.
+        function shortString(input) {
+            var convertedInput = input.split(' ')
+            // console.log(convertedInput)
+            let finalInput = []
+            //create loop that hits every value except for the first one
+            for (var i = 0; i < convertedInput.length; i++) {
+                if (i == 0) {
+                    finalInput.push(convertedInput[i])
+                } else {
+                    var word = convertedInput[i]
+                    //console.log('word ' + word)
+
+                    var newWord = word.split('').shift().toUpperCase()
+                    //console.log(newWord)
+
+                    finalInput.push(newWord)
+
+                    var finalInputString = finalInput.join(' ')
+                }
+            }
+            console.log(finalInputString)
+        }
+
+        shortString('Vince Fury')
     </script>
 </body>
 
