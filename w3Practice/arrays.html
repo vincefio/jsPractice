@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //1. Write a JavaScript function to check whether an `input` is an array or not
+        function isArray(input) {
+            if (Array.isArray(input)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        //console.log(isArray('yo'))
+
+        //3. Write a JavaScript function to get the first element of an array.
+        // Passing a parameter 'n' will return the first 'n' elements of the array.
+        function firstEl(input, nth) {
+            if (nth) {
+                var newInput = input.slice(0, nth)
+                return newInput
+            } else {
+                var element = input.shift()
+                return element
+            }
+        }
+
+        //var testArray = ['cars', 'boats', 'hos']
+        //console.log(firstEl(testArray, 2))
+
+        //4. Write a JavaScript function to get the last element of an array.
+        // Passing a parameter 'n' will return the last 'n' elements of the array.
+        function lastEl(input, nth) {
+            if (nth) {
+                var newInput = input.slice(input.length - nth)
+                return newInput
+            } else {
+                var element = input.pop()
+                return element
+            }
+        }
+
+        //var testArray = ['cars', 'boats', 'hos']
+        //console.log(lastEl(testArray, 1))
+
+        function arraySort(input) {
+            return input.sort(function (a, b) { return a - b })
+        }
+
+        var arr1 = [3, 8, 7, 6, 5, -4, 3, 2, 1];
+        //console.log(arraySort(arr1))
+
+        //Write a JavaScript program which accept a number as input and insert dashes (-) between each two even numbers. 
+        //For example if you accept 025468 the output should be 0-254-6-8
+
+        function insertDash(input) {
+            let inputArray = input.toString().split('')
+            let lastNum = false
+            let outputArray = []
+
+            for (var i = 0; i < inputArray.length; i++) {
+                console.log('for hit ' + parseInt(inputArray[i]))
+                //var x = inputArray[i].parseInt()
+                if (inputArray[i] % 2 == 0) {
+                    //console.log('even hit')
+                    //if number is even
+                    //check to see what the last one was
+                    if (lastNum) {
+                        // console.log('even hit')
+                        //if this number is even
+                        outputArray.push('---')
+                        outputArray.push(inputArray[i])
+                        lastNum = true
+                    } else {
+                        outputArray.push(inputArray[i])
+                        lastNum = true
+                    }
+                } else {
+                    console.log('odd hit')
+                    //if current number is odd
+                    outputArray.push(inputArray[i])
+                    lastNum = false
+                }
+                /*if (lastNum) {
+                    if (inputArray[i] % 2 == 0) {
+                        console.log('even hit')
+                        //if this number is even
+                        outputArray.push('-')
+                        outputArray.push(inputArray[i])
+                        lastNum = true
+                    } else {
+
+                    }
+                }*/
+
+            }
+            console.log(outputArray)
+        }
+
+        insertDash(42210528)
+    </script>
+</body>
+
+</html>
