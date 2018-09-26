@@ -109,6 +109,68 @@
         //insertDash(42210528)
 
         //8. Write a JavaScript program to find the most frequent item of an array.
+        var arr2 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]
+        //var arr3 = arr2.slice()
+        //console.log(arr3)
+
+        function mostFrequent(input) {
+            //loop through array
+            //push into another array
+            //loop over second array and count instances
+
+            //or just copy the array
+            var arrCopy = input.slice()
+            var obj = {}
+            //first check if there is a duplicate of the letter
+            for (var i = 0; i < input.length; i++) {
+                /*for (var j = 0; j < arrCopy.length; j++) {
+                    if (input[i] = arrCopy[j]) {
+                        console.log('there are multiple instances of ' + input[i])
+                    }
+                }*/
+                if (!obj[input[i]]) {
+                    obj[input[i]] = 1
+                } else {
+                    obj[input[i]] += 1
+                }
+            }
+            //solve by using object
+            console.log(obj)
+
+            //loop through object to find highest property
+            var currentNum = []
+            for (key in obj) {
+                //currentNum = obj[key]
+                //console.log(currentNum)
+                currentNum.push(obj[key])
+                currentNum.sort(function (a, b) { return a - b })
+
+            }
+            console.log(currentNum)
+            var highestNum = currentNum.pop()
+            console.log(highestNum)
+
+            for (key in obj) {
+                if (obj[key] == highestNum) {
+                    var answer = key
+                    alert('the most frequent number is ' + answer + ' with ' + obj[key] + ' occurences!')
+                    break;
+                }
+            }
+
+
+            /*var whileCounter = 0
+        
+            while (whileCounter < input.length) {
+               // console.log('yo')
+               for (var i = 0; i < input.length; i++) {
+
+                }
+                whileCounter++
+            }*/
+        }
+
+        mostFrequent(arr2)
     </script>
 </body>
 
