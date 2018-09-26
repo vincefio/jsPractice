@@ -11,7 +11,7 @@
 <body>
 
     <script>
-        function listProps(input) {
+        /*function listProps(input) {
             var keys = Object.keys(input)
             return keys
         }
@@ -22,7 +22,18 @@
             rollno: 12
         };
 
-        console.log(listProps(student))
+        console.log(listProps(student))*/
+
+        var student = {
+            name: "David Rayy",
+            sclass: "VI",
+            rollno: 12
+        };
+
+        //delete student.rollno
+        //const propOwn = Object.getOwnPropertyNames(student)
+        const propOwn = Object.keys(student)
+        console.log(propOwn)
 
     </script>
 
