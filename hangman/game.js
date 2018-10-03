@@ -2,7 +2,7 @@ $(document).ready(() => {
 
     let game = {
         word: '',
-
+        answerArray: [],
         //declare words and their hints
         guessWords: [
             {
@@ -34,11 +34,24 @@ $(document).ready(() => {
 
         //create function to update guesses div
         updateGuesses: function () {
-            console.log(this.word)
+            var wordSwitch = this.word.split('')
+            var displayString = ''
+            console.log(wordSwitch)
+            //create a string to display blank spaces to user
+            for (var i = 0; i < wordSwitch.length; i++) {
+                if (this.answerArray.indexOf(wordSwitch[i]) != -1) {
+                    console.log('letter ' + wordSwitch[i] + ' has been guessed')
+                } else {
+                    console.log('letter ' + wordSwitch[i] + ' has not been guess yet')
+                }
+                /* for(var j = 0; j < this.answerArray.length){
+                     if(answerArray[j] == wordSwitch[i])
+                 }*/
+            }
         }
     }
 
-    console.log(game.randomWord())
+    console.log(game.randomWord().length)
     //console.log(game.word)
     game.updateGuesses()
 })
