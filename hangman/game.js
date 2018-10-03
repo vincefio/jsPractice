@@ -32,6 +32,21 @@ $(document).ready(() => {
             return this.word
         },
 
+        handleKeyPress: () => {
+            $(document).on('keyup', (e) => {
+                //use regex to check if key pressed is a letter
+                var input = String.fromCharCode(event.keyCode)
+                if (/^[a-zA-Z]+$/.test(input)) {
+                    console.log('input is a letter')
+                } else {
+                    console.log('input is not a letter')
+                }
+
+                console.log(input)
+            })
+
+        },
+
         //create function to update guesses div
         updateGuesses: function () {
             var wordSwitch = this.word.split('')
@@ -40,17 +55,23 @@ $(document).ready(() => {
             //create a string to display blank spaces to user
             for (var i = 0; i < wordSwitch.length; i++) {
                 if (this.answerArray.indexOf(wordSwitch[i]) != -1) {
-                    console.log('letter ' + wordSwitch[i] + ' has been guessed')
+                    //console.log('letter ' + wordSwitch[i] + ' has been guessed')
+                    displayString += wordSwitch[i] + ' '
                 } else {
-                    console.log('letter ' + wordSwitch[i] + ' has not been guess yet')
+                    //console.log('letter ' + wordSwitch[i] + ' has not been guess yet')
+                    displayString += '__ '
                 }
-                /* for(var j = 0; j < this.answerArray.length){
-                     if(answerArray[j] == wordSwitch[i])
-                 }*/
             }
+            console.log(displayString)
+            console.log(this.answerArray)
+        },
+
+        updateUsedLetters: () => {
+            //if the guessed letter is not in 
         }
     }
 
+    game.handleKeyPress()
     console.log(game.randomWord().length)
     //console.log(game.word)
     game.updateGuesses()
