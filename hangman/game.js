@@ -3,6 +3,8 @@ $(document).ready(() => {
     let game = {
         word: '',
         answerArray: [],
+        guessString: '',
+        guessesLeft: 8,
         //declare words and their hints
         guessWords: [
             {
@@ -36,27 +38,28 @@ $(document).ready(() => {
 
             $(document).on('keyup', (e) => {
                 //use regex to check if key pressed is a letter
-                var input = String.fromCharCode(event.keyCode)
+                var input = String.fromCharCode(event.keyCode).toLowerCase()
+                //var guessString = ''
 
                 if (/^[a-zA-Z]+$/.test(input)) {
-                    console.log('input is a letter')
-                    // console.log(this.answerArray)
                     //if input is a letter we check to see if it is in answer array
-                    if (this.answerArray.indexOf(input) != -1) {
-                        //input has already been guessed
-
-                    } else {
-                        //input has not yet been guessed
-                        console.log('letter has not been guessed')
+                    if (this.answerArray.indexOf(input) == -1) {
+                        //input has not already been guessed
+                        this.guessString += input + '  '
                         this.answerArray.push(input)
+                    } else {
+                        //input has already been guessed
+                        console.log(input + ' has already been guessed')
                     }
                     //if not we add it and update 
                 } else {
                     console.log('input is not a letter')
                 }
 
-                console.log(input)
-                console.log(this.answerArray)
+                //console.log(input)
+                console.log(this.guessString)
+                $('#usedLetters').empty().append('<p>' + this.guessString + '</p>')
+                this.updateGuesses()
             })
 
         },
@@ -65,28 +68,31 @@ $(document).ready(() => {
         updateGuesses: function () {
             var wordSwitch = this.word.split('')
             var displayString = ''
-            console.log(wordSwitch)
+            //console.log(wordSwitch)
             //create a string to display blank spaces to user
             for (var i = 0; i < wordSwitch.length; i++) {
                 if (this.answerArray.indexOf(wordSwitch[i]) != -1) {
-                    //console.log('letter ' + wordSwitch[i] + ' has been guessed')
+                    // console.log('letter ' + wordSwitch[i] + ' has been guessed')
                     displayString += wordSwitch[i] + ' '
                 } else {
-                    //console.log('letter ' + wordSwitch[i] + ' has not been guess yet')
+                    //  console.log('letter ' + wordSwitch[i] + ' has not been guess yet')
                     displayString += '__ '
                 }
             }
-            console.log(displayString)
+            // console.log(displayString)
+
+            $('#guesses').empty().append('<p>' + displayString + '</p>')
             // console.log(this.answerArray)
-        },
+        }/*,
 
         updateUsedLetters: () => {
             //if the guessed letter is not in 
-        }
+        }*/
     }
 
+    game.randomWord()
     game.handleKeyPress()
-    console.log(game.randomWord().length)
+    //console.log(game.randomWord().length)
     //console.log(game.answerArray)
     game.updateGuesses()
 })
