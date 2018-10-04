@@ -32,17 +32,31 @@ $(document).ready(() => {
             return this.word
         },
 
-        handleKeyPress: () => {
+        handleKeyPress: function () {
+
             $(document).on('keyup', (e) => {
                 //use regex to check if key pressed is a letter
                 var input = String.fromCharCode(event.keyCode)
+
                 if (/^[a-zA-Z]+$/.test(input)) {
                     console.log('input is a letter')
+                    // console.log(this.answerArray)
+                    //if input is a letter we check to see if it is in answer array
+                    if (this.answerArray.indexOf(input) != -1) {
+                        //input has already been guessed
+
+                    } else {
+                        //input has not yet been guessed
+                        console.log('letter has not been guessed')
+                        this.answerArray.push(input)
+                    }
+                    //if not we add it and update 
                 } else {
                     console.log('input is not a letter')
                 }
 
                 console.log(input)
+                console.log(this.answerArray)
             })
 
         },
@@ -63,7 +77,7 @@ $(document).ready(() => {
                 }
             }
             console.log(displayString)
-            console.log(this.answerArray)
+            // console.log(this.answerArray)
         },
 
         updateUsedLetters: () => {
@@ -73,6 +87,6 @@ $(document).ready(() => {
 
     game.handleKeyPress()
     console.log(game.randomWord().length)
-    //console.log(game.word)
+    //console.log(game.answerArray)
     game.updateGuesses()
 })
