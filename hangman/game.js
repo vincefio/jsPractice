@@ -4,7 +4,8 @@ $(document).ready(() => {
         word: '',
         answerArray: [],
         guessString: '',
-        guessesLeft: 8,
+        guessesLeft: 12,
+        // correctLetters: 0,
         //declare words and their hints
         guessWords: [
             {
@@ -47,6 +48,7 @@ $(document).ready(() => {
                         //input has not already been guessed
                         this.guessString += input + '  '
                         this.answerArray.push(input)
+                        this.updateGuessNumber()
                     } else {
                         //input has already been guessed
                         console.log(input + ' has already been guessed')
@@ -60,6 +62,8 @@ $(document).ready(() => {
                 console.log(this.guessString)
                 $('#usedLetters').empty().append('<p>' + this.guessString + '</p>')
                 this.updateGuesses()
+                this.guessListener()
+                // this.winListener()
             })
 
         },
@@ -74,25 +78,64 @@ $(document).ready(() => {
                 if (this.answerArray.indexOf(wordSwitch[i]) != -1) {
                     // console.log('letter ' + wordSwitch[i] + ' has been guessed')
                     displayString += wordSwitch[i] + ' '
+                    //this.correctLetters += 1
                 } else {
                     //  console.log('letter ' + wordSwitch[i] + ' has not been guess yet')
-                    displayString += '__ '
+                    displayString += '_ '
                 }
             }
             // console.log(displayString)
 
             $('#guesses').empty().append('<p>' + displayString + '</p>')
-            // console.log(this.answerArray)
-        }/*,
+            // console.log('stringg length ' + displayString.length)
+            //console.log('answer array length ' + this.answerArray.length)
+            this.winListener(displayString)
+        },
 
-        updateUsedLetters: () => {
+        updateGuessNumber: function () {
             //if the guessed letter is not in 
-        }*/
+
+            this.guessesLeft -= 1;
+            //console.log('updateGuessNumber hit ' + this.guessesLeft)
+            $('#guessesLeft').empty().html(this.guessesLeft)
+
+
+        },
+
+        startGame: function () {
+            //prompt user if they want to play, then start listener for guesses left
+            if (confirm('Would you like to play Rock N Roll Hangman?')) {
+                //alert('lets play mofo')
+                game.randomWord()
+                game.handleKeyPress()
+                game.updateGuesses()
+                // game.guessListener()
+
+            } else {
+                alert('Have a nice day!')
+            }
+        },
+
+        guessListener: function () {
+            if (this.guessesLeft === 0) {
+                setTimeout(function () { alert("YOU LOSE"); }, 100);
+                //this.startGame()
+            }
+        },
+
+        winListener: function (string) {
+            string = string.replace(/\s/g, '');
+            console.log('string ' + string)
+            // console.log('word length ' + this.word.lenth)
+            //console.log('correct letters length ' + this.correctLetters)
+            //check if work is equal to display string
+            if (string == this.word && this.guessesLeft > 0) {
+                setTimeout(function () { alert('YOU WIN!!!') }, 100)
+                //this.startGame()
+            }
+        }
     }
 
-    game.randomWord()
-    game.handleKeyPress()
-    //console.log(game.randomWord().length)
-    //console.log(game.answerArray)
-    game.updateGuesses()
+    game.startGame()
+
 })
