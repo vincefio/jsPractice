@@ -28,10 +28,15 @@ $(document).ready(() => {
 
 
         randomWord: function () {
+            $('#hint').empty()
             //create random number between 0 and 3
-            this.word = this.guessWords[Math.floor(Math.random() * 3)].title
+            var randNum = Math.floor(Math.random() * 3)
+            this.word = this.guessWords[randNum].title
+
             console.log('CURRENT WORD IS ' + this.word.toUpperCase())
             console.log('-------------------------------')
+            $('#hint').append('<h3>Hint: ' + this.guessWords[randNum].hint + '</h3>')
+
             return this.word
         },
 
@@ -106,10 +111,10 @@ $(document).ready(() => {
         startGame: function () {
             //prompt user if they want to play, then start listener for guesses left
             if (confirm('Would you like to play Rock N Roll Hangman?')) {
-                /*() this.word = '',
-                     this.answerArray = [],
-                     this.guessString = '',
-                     this.guessesLeft = 12*/
+                this.word = '',
+                    this.answerArray = [],
+                    this.guessString = '',
+                    this.guessesLeft = 12
                 $('#usedLetters').empty()
                 $('#guessesLeft').empty()
                 //alert('lets play mofo')
