@@ -61,8 +61,9 @@ $(document).ready(() => {
                 //console.log(input)
                 console.log(this.guessString)
                 $('#usedLetters').empty().append('<p>' + this.guessString + '</p>')
+
                 this.updateGuesses()
-                this.guessListener()
+                //this.guessListener()
                 // this.winListener()
             })
 
@@ -105,6 +106,12 @@ $(document).ready(() => {
         startGame: function () {
             //prompt user if they want to play, then start listener for guesses left
             if (confirm('Would you like to play Rock N Roll Hangman?')) {
+                /*() this.word = '',
+                     this.answerArray = [],
+                     this.guessString = '',
+                     this.guessesLeft = 12*/
+                $('#usedLetters').empty()
+                $('#guessesLeft').empty()
                 //alert('lets play mofo')
                 game.randomWord()
                 game.handleKeyPress()
@@ -116,23 +123,33 @@ $(document).ready(() => {
             }
         },
 
-        guessListener: function () {
-            if (this.guessesLeft === 0) {
-                setTimeout(function () { alert("YOU LOSE"); }, 100);
-                //this.startGame()
+        /*guessListener: function (string) {
+            string = string.replace(/\s/g, '');
+            if (this.guessesLeft === 0 && string != this.word) {
+                setTimeout(function () { alert("YOU LOSE"); }, 50);
+                setTimeout(function () { game.startGame() }, 100)
+                //setTimeout(function () { this.startGame() }, 150)
             }
-        },
+        },*/
 
         winListener: function (string) {
+            // var bool = false
             string = string.replace(/\s/g, '');
             console.log('string ' + string)
             // console.log('word length ' + this.word.lenth)
             //console.log('correct letters length ' + this.correctLetters)
             //check if work is equal to display string
-            if (string == this.word && this.guessesLeft > 0) {
-                setTimeout(function () { alert('YOU WIN!!!') }, 100)
-                //this.startGame()
+            if (this.guessesLeft === 0 && string != this.word) {
+                setTimeout(function () { alert("YOU LOSE"); }, 50);
+                setTimeout(function () { game.startGame() }, 100)
+                //setTimeout(function () { this.startGame() }, 150)
             }
+            if (string == this.word && this.guessesLeft > 0) {
+                //alert('you win')
+                setTimeout(function () { alert('YOU WIN!!!') }, 50)
+                setTimeout(function () { game.startGame() }, 100)
+            }
+
         }
     }
 
