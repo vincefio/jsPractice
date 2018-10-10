@@ -241,15 +241,13 @@
 
   @media screen and (max-width: 782px){
     body{
-        margin: -50px 0 !important;
+       
       }
 
     #logoText{
-        left: 30%;
+        left: 35%;
     }
-    #catchPhrase{
-        left: 15%;
-    }
+   
   }
   
   @media screen and (max-width: 605px) {
@@ -263,6 +261,9 @@
     #logoText{
         left: 22%;
     }
+    #catchPhrase{
+      left: 5%;
+  }
   }
   
   @media screen and (max-width: 480px) {

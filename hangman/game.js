@@ -19,18 +19,22 @@ $(document).ready(() => {
             {
                 title: 'satisfaction',
                 hint: 'The Rolling Stones First American Hit Single released in 1965'
-            }/*,
+            },
             {
-                title: 'cruisin'
-                hint
-            }*/
+                title: 'jessica',
+                hint: 'The Allman Brothers most famous instrumental...Named after a woman'
+            },
+            {
+                title: 'blackbird',
+                hint: 'Song by The Beatles named after a bird'
+            }
         ],
 
 
         randomWord: function () {
             $('#hint').empty()
-            //create random number between 0 and 3
-            var randNum = Math.floor(Math.random() * 3)
+            //create random number between 0 and 4
+            var randNum = Math.floor(Math.random() * 5)
             this.word = this.guessWords[randNum].title
 
             console.log('CURRENT WORD IS ' + this.word.toUpperCase())
@@ -63,13 +67,9 @@ $(document).ready(() => {
                     console.log('input is not a letter')
                 }
 
-                //console.log(input)
-                console.log(this.guessString)
                 $('#usedLetters').empty().append('<p>' + this.guessString + '</p>')
 
                 this.updateGuesses()
-                //this.guessListener()
-                // this.winListener()
             })
 
         },
@@ -90,17 +90,13 @@ $(document).ready(() => {
                     displayString += '_ '
                 }
             }
-            // console.log(displayString)
 
             $('#guesses').empty().append('<p>' + displayString + '</p>')
-            // console.log('stringg length ' + displayString.length)
             //console.log('answer array length ' + this.answerArray.length)
             this.winListener(displayString)
         },
 
         updateGuessNumber: function () {
-            //if the guessed letter is not in 
-
             this.guessesLeft -= 1;
             //console.log('updateGuessNumber hit ' + this.guessesLeft)
             $('#guessesLeft').empty().html(this.guessesLeft)
@@ -117,32 +113,22 @@ $(document).ready(() => {
                     this.guessesLeft = 12
                 $('#usedLetters').empty()
                 $('#guessesLeft').empty()
-                //alert('lets play mofo')
+
                 game.randomWord()
                 game.handleKeyPress()
                 game.updateGuesses()
-                // game.guessListener()
 
             } else {
                 alert('Have a nice day!')
             }
         },
 
-        /*guessListener: function (string) {
-            string = string.replace(/\s/g, '');
-            if (this.guessesLeft === 0 && string != this.word) {
-                setTimeout(function () { alert("YOU LOSE"); }, 50);
-                setTimeout(function () { game.startGame() }, 100)
-                //setTimeout(function () { this.startGame() }, 150)
-            }
-        },*/
 
         winListener: function (string) {
             // var bool = false
             string = string.replace(/\s/g, '');
             console.log('string ' + string)
-            // console.log('word length ' + this.word.lenth)
-            //console.log('correct letters length ' + this.correctLetters)
+
             //check if work is equal to display string
             if (this.guessesLeft === 0 && string != this.word) {
                 setTimeout(function () { alert("YOU LOSE"); }, 50);

@@ -33,7 +33,37 @@
         //delete student.rollno
         //const propOwn = Object.getOwnPropertyNames(student)
         const propOwn = Object.keys(student)
-        console.log(propOwn)
+        //console.log(propOwn)
+
+
+        //SOME RECURSION
+        //create program to determine factorial of a number
+        var facky
+        var counter
+
+        function factorial(input) {
+            counter = input
+            console.log(counter + ' ' + input)
+            if (counter > 0) {
+
+
+                input = input * (counter - 1)
+                //console.log('facky ' + facky)
+                counter -= 1
+                console.log(input)
+                //factorial(input)
+            }
+
+
+            return facky
+            /* if (input === 0)
+  {
+     return 1;
+  }
+             return input * factorial(input - 1)*/
+        }
+
+        console.log(factorial(5))
 
     </script>
 
