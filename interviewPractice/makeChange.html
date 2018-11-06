@@ -25,15 +25,36 @@ The available coints for you to use are quarters, dimes, ninckels, and pennies--
 
             var number = $('#moneyTotal').val()
             var quarters
+            var dimes
+            var nickels
+            var pennies
             var remainder
             //find amount of quarters
-            quarters = Math.floor(number / 25)
-            remainder = number % 25
-            console.log(quarters + ' quarters ' + Math.floor(remainder) + ' left over')
+            if (number >= 25) {
+                quarters = Math.floor(number / 25)
+                remainder = number % 25
+                console.log(quarters + ' quarters ' + Math.floor(remainder) + ' left over')
+            }
 
             //find dimes
             if (remainder >= 10) {
+                dimes = Math.floor(remainder / 10)
+                remainder = remainder % 10
+                console.log(dimes + ' dimes ' + Math.floor(remainder) + ' left over')
+            }
 
+            //find dimes
+            if (remainder >= 5) {
+                nickels = Math.floor(remainder / 5)
+                remainder = remainder % 5
+                console.log(nickels + ' nickels ' + Math.floor(remainder) + ' left over')
+            }
+
+            //find dimes
+            if (remainder >= 1) {
+                pennies = Math.floor(remainder / 1)
+                remainder = remainder % 1
+                console.log(pennies + ' pennies ' + Math.floor(remainder) + ' left over')
             }
 
         })
