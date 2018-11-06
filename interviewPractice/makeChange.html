@@ -18,9 +18,24 @@ The available coints for you to use are quarters, dimes, ninckels, and pennies--
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
+        //remove punctuation from input
+        //divide by 25
         $('#submit').on('click', function (event) {
             event.preventDefault()
-            console.log($('#moneyTotal').val())
+
+            var number = $('#moneyTotal').val()
+            var quarters
+            var remainder
+            //find amount of quarters
+            quarters = Math.floor(number / 25)
+            remainder = number % 25
+            console.log(quarters + ' quarters ' + Math.floor(remainder) + ' left over')
+
+            //find dimes
+            if (remainder >= 10) {
+
+            }
+
         })
     </script>
 </body>
