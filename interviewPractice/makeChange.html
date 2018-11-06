@@ -10,29 +10,45 @@ The available coints for you to use are quarters, dimes, ninckels, and pennies--
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Make Change</title>
 </head>
+<style>
+    #results {
+        margin-top: 20px;
+    }
+
+    .results {
+        font-size: 1.5em;
+    }
+</style>
 
 <body>
-    <h1>Enter the amount of change you would like to make</h1>
+    <h1>Enter the dollar amount of change you would like to make (e.g. 4.50)</h1>
     <input type="text" id="moneyTotal" />
     <input id="submit" type="submit" value="Submit">
-
+    <div id="results"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script>
-        //remove punctuation from input
-        //divide by 25
+
         $('#submit').on('click', function (event) {
             event.preventDefault()
 
-            var number = $('#moneyTotal').val()
+            //empty results div
+            $('#results').empty()
+
+            //remove punctuation from input
+            var number = $('#moneyTotal').val().replace(/[^\w\s]|_/g, "")
+            console.log('number ' + number)
+
             var quarters
             var dimes
             var nickels
             var pennies
             var remainder
+
             //find amount of quarters
             if (number >= 25) {
                 quarters = Math.floor(number / 25)
                 remainder = number % 25
+                $('#results').append('<div class="results">' + quarters + ' quarters</div > ')
                 console.log(quarters + ' quarters ' + Math.floor(remainder) + ' left over')
             }
 
@@ -40,6 +56,7 @@ The available coints for you to use are quarters, dimes, ninckels, and pennies--
             if (remainder >= 10) {
                 dimes = Math.floor(remainder / 10)
                 remainder = remainder % 10
+                $('#results').append('<div class="results">' + dimes + ' dimes</div > ')
                 console.log(dimes + ' dimes ' + Math.floor(remainder) + ' left over')
             }
 
@@ -47,6 +64,7 @@ The available coints for you to use are quarters, dimes, ninckels, and pennies--
             if (remainder >= 5) {
                 nickels = Math.floor(remainder / 5)
                 remainder = remainder % 5
+                $('#results').append('<div class="results">' + nickels + ' nickels</div > ')
                 console.log(nickels + ' nickels ' + Math.floor(remainder) + ' left over')
             }
 
@@ -54,6 +72,7 @@ The available coints for you to use are quarters, dimes, ninckels, and pennies--
             if (remainder >= 1) {
                 pennies = Math.floor(remainder / 1)
                 remainder = remainder % 1
+                $('#results').append('<div class="results">' + pennies + ' pennies</div > ')
                 console.log(pennies + ' pennies ' + Math.floor(remainder) + ' left over')
             }
 
