@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>String Practice</title>
+</head>
+
+<body>
+    <h1>Enter a string to see if all of the characters are unique</h1>
+    <input type="text" id="stringString" />
+    <input id="submit" type="submit" value="Submit">
+    <div id="results"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script>
+        //implement algorithm to determine if string has all unique characters
+
+        $('#submit').on('click', function (event) {
+            event.preventDefault()
+
+            var currentString = $('#stringString').val()
+            console.log(currentString)
+
+            //loop through the characters to see if there are multiple cases
+            for (var i = 0; i < currentString.length; i++) {
+                //var currentLetter = currentString[i]
+                console.log('curcur ' + currentString)
+                //now check if currentLetter is still in the string
+                //console.log(currentString.indexOf(currentLetter))
+                if (currentString.indexOf(i) == -1) {
+                    console.log('letter ' + currentString.charAt(i) + ' is unique')
+                } else {
+                    console.log('letter ' + currentString.charAt(i) + ' is  NOT unique')
+                }
+
+                //first thing, remove current letter from string
+                currentString = currentString.substr(1)
+
+
+
+
+                //remove currentLetter from currentString
+                /* var letterIndex = currentString.indexOf(currentLetter)
+                 console.log('letter index ' + letterIndex)
+                 currentString = currentString.slice(letterIndex)
+                 console.log('new string ' + currentString)*/
+
+
+            }
+        })
+    </script>
+</body>
+
+</html>
