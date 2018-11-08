@@ -26,12 +26,12 @@
 
             //loop through the characters to see if there are multiple cases
             for (var i = 0; i < currentString.length; i++) {
-                //var currentLetter = currentString[i]
+                var currentLetter = currentString[i]
                 console.log('curcur ' + currentString)
                 //now check if currentLetter is still in the string
                 //console.log(currentString.indexOf(currentLetter))
-                if (currentString.indexOf(i) == -1) {
-                    console.log('letter ' + currentString.charAt(i) + ' is unique')
+                if (currentString.indexOf(currentLetter) == -1) {
+                    console.log('letter ' + currentLetter + ' is unique')
                 } else {
                     console.log('letter ' + currentString.charAt(i) + ' is  NOT unique')
                 }
